@@ -1,14 +1,8 @@
-<div>
-    <h2>Heróis cadastrados</h2>
-    <ul class="heores">
-        <li *ngFor = "let hero of heroes" (click) = "onSelect(hero)">
-            <span class="badge">{{hero.id}}</span> {{hero.name}}
-        </li>
-    </ul>
-
-</div>
-<div *ngIf = "selectedHero">
-    <h2>{{selectedHero.name |  uppercase }} selected</h2>
-    <div><span>ID: </span>{{selectedHero.id}}</div>
-    <label>Nome <input [(ngModel)] = "selectedHero.name"></label>
-</div>
+<h2>Meus Heróis</h2> 
+  <ul class="heroes"> 
+      <li *ngFor="let hero of heroes" (click)="onSelect(hero)" [class.selected]="hero === selectedHero"> 
+           
+        <span class="badge">{{hero.id}}</span> {{hero.name}} 
+      </li> 
+    </ul> 
+    <app-hero-detail [selectedHero] = "selectedHero"></app-hero-detail>
